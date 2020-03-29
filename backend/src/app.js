@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const { errors } = require('celebrate');
+
 
 const app = express();
 const routes = require('./routes');
@@ -9,6 +11,7 @@ app.use(express.json());
 
 app.use(routes);
 
+app.use(errors());
 /*
      - Metodos HTTP
         * GET: Buscar/listar uma informação do backend
@@ -39,4 +42,4 @@ app.use(routes);
 
 
 
-app.listen(3333);
+module.exports = app;
